@@ -45,6 +45,7 @@ Route::middleware('auth')->group(function () {
     // Water Logs (Catatan Kualitas Air) CRUD
     Route::get('/water-logs', [WaterLogController::class, 'index'])->name('water-logs.index');
     Route::post('/water-logs', [WaterLogController::class, 'store'])->name('water-logs.store');
+    Route::get('/water-logs/{waterLog}/edit', [WaterLogController::class, 'edit'])->name('water-logs.edit');
     Route::put('/water-logs/{waterLog}', [WaterLogController::class, 'update'])->name('water-logs.update');
     // Admin only route for deleting water logs
     Route::delete('/water-logs/{waterLog}', [WaterLogController::class, 'destroy'])->name('water-logs.destroy');

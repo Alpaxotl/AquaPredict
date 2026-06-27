@@ -123,9 +123,10 @@ class WaterLogController extends Controller
             return redirect()->back()->with('error', 'Anda tidak memiliki hak untuk mengubah log kualitas air milik staf lain.');
         }
 
-        $validated = $request->validate($this->validationRules(), $this->validationMessages());
-
-        $pond = $waterLog->pond;
+        $validated = $request->validate(
+            array_merge(['pond_id' => 'required|exists:ponds,id'], $this->validationRules()),
+            array_merge(['pond_id.required' => 'Kolam wajib dipilih.', 'pond_id.exists' => 'Kolam tidak valid.'], $this->validationMessages())
+        );
 
         $analysis = $this->callAnalysisService($validated);
 
@@ -145,6 +146,12 @@ class WaterLogController extends Controller
 
         $waterLog->delete();
         return redirect()->back()->with('success', 'Catatan kualitas air berhasil dihapus secara permanen.');
+    }
+
+    public function edit(WaterLog $waterLog)
+    {
+        $ponds = Pond::all();
+        return view('water-logs.edit', compact('waterLog', 'ponds'));
     }
 
     /**

@@ -205,6 +205,7 @@
                             <td class="px-5 py-4 text-xs text-gray-400 max-w-xs">{{ $log->recommendation }}</td>
                             <td class="px-5 py-4 text-xs text-gray-500">{{ $log->created_at->format('d/m/Y H:i') }}</td>
                             <td class="px-5 py-4 text-right">
+                                <a href="{{ route('water-logs.edit', $log->id) }}" class="text-gold hover:text-gold-hover text-xs font-medium mr-3">Edit</a>
                                 @if(auth()->user()->role === 'admin')
                                     <form action="{{ route('water-logs.destroy', $log->id) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus catatan ini?');" class="inline">
                                         @csrf
