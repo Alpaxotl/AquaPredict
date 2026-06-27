@@ -51,7 +51,7 @@
                     <div class="flex justify-between items-center border-b border-gold/10 pb-4 mb-4">
                         <div>
                             <p class="text-xs text-gray-500">Live Status Kolam</p>
-                            <h4 class="text-white font-medium text-lg">Kolam Nila Utama</h4>
+                            <h4 class="text-white font-medium text-lg">Kolam Budidaya Utama</h4>
                         </div>
                         <span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Optimal</span>
                     </div>
