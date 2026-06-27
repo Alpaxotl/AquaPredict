@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Fira+Code:wght@400;500&display=swap');
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Outfit', 'Instrument Sans', ui-sans-serif, system-ui, sans-serif;
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-mono: 'Fira Code', 'JetBrains Mono', monospace;
+
+    /* ===== TEMA LAUT / DEEP OCEAN ===== */
+    --color-obsidian: #03101a;
+    /* dasar: laut paling dalam */
+    --color-slate-card: #0a2233;
+    /* panel/kartu: navy laut */
+    --color-gold: #22d3c5;
+    /* aksen utama: turquoise terang */
+    --color-gold-hover: #1ab8ac;
+    /* hover: turquoise lebih gelap */
+}
+
+body {
+    background-color: var(--color-obsidian);
+    background-image:
+        radial-gradient(ellipse 80% 50% at 20% -10%, rgba(34, 211, 197, 0.12), transparent),
+        radial-gradient(ellipse 60% 40% at 90% 10%, rgba(56, 189, 248, 0.08), transparent),
+        radial-gradient(ellipse 70% 60% at 50% 120%, rgba(14, 116, 144, 0.15), transparent);
+    background-attachment: fixed;
+    color: #dceef2;
+    font-family: var(--font-sans);
+}
+
+.font-serif-heading {
+    font-family: var(--font-serif);
+    letter-spacing: 0.05em;
+}
+
+.font-mono-data {
+    font-family: var(--font-mono);
+}
+
+/* Glassmorphism ala permukaan air */
+.glass-panel {
+    background: rgba(10, 34, 51, 0.75);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(34, 211, 197, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Garis riak halus di tepi atas setiap glass panel */
+.glass-panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(125, 211, 252, 0.5), transparent);
+}
+
+.gold-glow:hover {
+    box-shadow: 0 0 20px rgba(34, 211, 197, 0.35), 0 0 4px rgba(125, 211, 252, 0.4);
+}
+
+/* Efek gelembung lembut untuk hero/landing (opsional, tempel di elemen pembungkus) */
+.bubble-field {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.bubble-field span {
+    position: absolute;
+    bottom: -10%;
+    border-radius: 9999px;
+    background: radial-gradient(circle at 30% 30%, rgba(125, 211, 252, 0.35), rgba(34, 211, 197, 0.05));
+    animation: bubble-rise linear infinite;
+}
+
+@keyframes bubble-rise {
+    0% {
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.6;
+    }
+
+    100% {
+        transform: translateY(-120vh) translateX(20px);
+        opacity: 0;
+    }
+}
+
+/* Scrollbar bertema laut */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-obsidian);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(34, 211, 197, 0.3);
+    border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(34, 211, 197, 0.5);
+}
