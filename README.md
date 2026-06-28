@@ -30,7 +30,7 @@ Dalam konteks *Living Lab*, AquaPredict berfungsi sebagai antarmuka yang mengelo
 ### Langkah Instalasi (Laravel)
 1. Clone repository ini:
    ```bash
-   git clone https://github.com/DwiJesika/AquaPredict.git
+   git clone https://github.com/Alpaxotl/AquaPredict.git
    cd AquaPredict
    ```
 2. Salin file environment:
